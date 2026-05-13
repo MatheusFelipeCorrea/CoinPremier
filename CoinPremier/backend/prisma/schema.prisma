@@ -1,0 +1,246 @@
+generator client {
+provider = "prisma-client-js"
+}
+
+datasource db {
+provider = "postgresql"
+url      = env("DATABASE_URL")
+}
+
+enum Role {
+ALUNO
+PROFESSOR
+EMPRESA
+ADMIN
+}
+
+enum StatusUsuario {
+ATIVO
+BLOQUEADO
+}
+
+enum TipoTransacao {
+ENVIO
+RECEBIMENTO
+RESGATE
+CREDITO_SEMESTRAL
+}
+
+enum StatusCupom {
+GERADO
+UTILIZADO
+EXPIRADO
+CANCELADO
+}
+
+enum TagReconhecimento {
+PARTICIPACAO
+CRIATIVIDADE
+LIDERANCA
+COLABORACAO
+DEDICACAO
+EXCELENCIA_ACADEMICA
+OUTRO
+}
+
+model Usuario {
+id         String        @id @default(cuid())
+nome       String
+email      String        @unique
+senhaHash  String
+role       Role
+status     StatusUsuario @default(ATIVO)
+createdAt  DateTime      @default(now())
+updatedAt  DateTime      @updatedAt
+
+aluno      Aluno?
+professor  Professor?
+empresa    Empresa?
+transacoes Transacao[]
+cupons     Cupom[]
+notificacoes Notificacao[]
+}
+
+model Instituicao {
+id          String      @id @default(cuid())
+nome        String      @unique
+sigla       String?
+createdAt   DateTime    @default(now())
+updatedAt   DateTime    @updatedAt
+alunos      Aluno[]
+professores Professor[]
+}
+
+model Aluno {
+id            String   @id @default(cuid())
+usuarioId     String   @unique
+cpf           String   @unique
+rg            String
+endereco      String
+curso         String
+saldoMoedas   Int      @default(0)
+instituicaoId String
+createdAt     DateTime @default(now())
+updatedAt     DateTime @updatedAt
+
+usuario          Usuario     @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+instituicao      Instituicao @relation(fields: [instituicaoId], references: [id])
+reconhecimentosRecebidos Reconhecimento[]
+favoritos        Favorito[]
+carrinhoItens    CarrinhoItem[]
+
+@@index([instituicaoId])
+}
+
+model Professor {
+id                    String   @id @default(cuid())
+usuarioId             String   @unique
+cpf                   String   @unique
+departamento          String
+saldoMoedas           Int      @default(0)
+ultimoSemestreCredito String?  // formato "2026-1" ou "2026-2"
+instituicaoId         String
+createdAt             DateTime @default(now())
+updatedAt             DateTime @updatedAt
+
+usuario         Usuario          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+instituicao     Instituicao      @relation(fields: [instituicaoId], references: [id])
+reconhecimentosFeitos Reconhecimento[]
+
+@@index([instituicaoId])
+}
+
+model Empresa {
+id         String   @id @default(cuid())
+usuarioId  String   @unique
+cnpj       String   @unique
+descricao  String
+createdAt  DateTime @default(now())
+updatedAt  DateTime @updatedAt
+
+usuario    Usuario    @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+vantagens  Vantagem[]
+}
+
+model Categoria {
+id        String     @id @default(cuid())
+nome      String     @unique
+slug      String     @unique
+icone     String?
+vantagens Vantagem[]
+}
+
+model Vantagem {
+id                 String   @id @default(cuid())
+titulo             String
+descricao          String
+custoMoedas        Int
+foto               String?
+estoque            Int?     // null = ilimitado
+ativo              Boolean  @default(true)
+validadeCupomDias  Int      @default(30)
+limitePorAluno     Int?     // null = sem limite
+empresaId          String
+categoriaId        String?
+createdAt          DateTime @default(now())
+updatedAt          DateTime @updatedAt
+
+empresa    Empresa        @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+categoria  Categoria?     @relation(fields: [categoriaId], references: [id])
+cupons     Cupom[]
+favoritos  Favorito[]
+carrinhoItens CarrinhoItem[]
+
+@@index([empresaId])
+@@index([categoriaId, ativo])
+}
+
+model Favorito {
+id         String   @id @default(cuid())
+alunoId    String
+vantagemId String
+createdAt  DateTime @default(now())
+
+aluno     Aluno    @relation(fields: [alunoId], references: [id], onDelete: Cascade)
+vantagem  Vantagem @relation(fields: [vantagemId], references: [id], onDelete: Cascade)
+
+@@unique([alunoId, vantagemId])
+}
+
+model CarrinhoItem {
+id         String   @id @default(cuid())
+alunoId    String
+vantagemId String
+quantidade Int      @default(1)
+createdAt  DateTime @default(now())
+
+aluno     Aluno    @relation(fields: [alunoId], references: [id], onDelete: Cascade)
+vantagem  Vantagem @relation(fields: [vantagemId], references: [id], onDelete: Cascade)
+
+@@unique([alunoId, vantagemId])
+}
+
+model Reconhecimento {
+id           String            @id @default(cuid())
+professorId  String
+alunoId      String
+quantidade   Int
+mensagem     String
+tag          TagReconhecimento @default(OUTRO)
+createdAt    DateTime          @default(now())
+
+professor Professor @relation(fields: [professorId], references: [id], onDelete: Cascade)
+aluno     Aluno     @relation(fields: [alunoId], references: [id], onDelete: Cascade)
+
+@@index([alunoId, createdAt])
+@@index([professorId, createdAt])
+}
+
+model Transacao {
+id               String        @id @default(cuid())
+tipo             TipoTransacao
+descricao        String
+quantidadeMoedas Int
+usuarioId        String
+referenciaId     String?       // id do reconhecimento/cupom relacionado
+createdAt        DateTime      @default(now())
+
+usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+@@index([usuarioId, createdAt])
+@@index([tipo, createdAt])
+}
+
+model Cupom {
+id                String      @id @default(cuid())
+codigo            String      @unique
+usuarioId         String
+vantagemId        String
+custoMoedasSnapshot Int       // preço travado na hora
+status            StatusCupom @default(GERADO)
+dataValidade      DateTime
+dataUtilizacao    DateTime?
+validadoPorEmpresaId String?  // auditoria: quem validou
+createdAt         DateTime    @default(now())
+updatedAt         DateTime    @updatedAt
+
+usuario  Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+vantagem Vantagem @relation(fields: [vantagemId], references: [id], onDelete: Cascade)
+
+@@index([status, dataValidade])
+@@index([usuarioId, status])
+}
+
+model Notificacao {
+id         String   @id @default(cuid())
+usuarioId  String
+titulo     String
+mensagem   String
+lida       Boolean  @default(false)
+link       String?
+createdAt  DateTime @default(now())
+
+usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+@@index([usuarioId, lida, createdAt])
+}
