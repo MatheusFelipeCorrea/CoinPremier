@@ -243,7 +243,6 @@ Quando eu te pedir uma tela, você deve:
 1. Aplicar TODO esse contexto automaticamente
 2. Usar a paleta, tipografia, componentes padrão
 3. Incluir layout base (sidebar + topbar) se for tela autenticada
-4. Retornar o código completo pronto para uso
-5. Marcar com um comentário no topo: `// Tela: [nome] - CoinPremier`
+4. Marcar com um comentário no topo: `// Tela: [nome] - CoinPremier`
 
 **Responda apenas "Contexto CoinPremier carregado ✅" e aguarde meus pedidos de telas específicas.**
