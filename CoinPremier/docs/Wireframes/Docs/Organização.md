@@ -286,6 +286,8 @@ stats section with 3 big numbers, footer with links.
 Font: Inter. Clean, modern SaaS style.
 ```
 
+PENDENTE
+
 ---
 
 ### 4.2 Login
@@ -1386,7 +1388,7 @@ Empty state per tab.
 
 ---
 
-### 9.2 Recuperar Senha
+
 
 **Step 1:** Email → envia link
 **Step 2:** Nova senha (após clicar no link)
