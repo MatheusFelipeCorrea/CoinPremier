@@ -1,4 +1,4 @@
-<div align="center">
+
 
 # 🪙 CoinPremier
 
@@ -216,7 +216,7 @@ Este é um projeto acadêmico, mas sugestões e feedbacks são sempre bem-vindos
 ---
 
 
-<div align="center">
+
 
 **Desenvolvido por Matheys Felipe**
 
