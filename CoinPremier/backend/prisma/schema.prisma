@@ -59,6 +59,10 @@ empresa    Empresa?
 transacoes Transacao[]
 cupons     Cupom[]
 notificacoes Notificacao[]
+
+@@index([email, status])
+@@index([role, createdAt])
+  @@index([status, role])
 }
 
 model Instituicao {
@@ -69,13 +73,15 @@ createdAt   DateTime    @default(now())
 updatedAt   DateTime    @updatedAt
 alunos      Aluno[]
 professores Professor[]
+
+  @@index([nome])
 }
 
 model Aluno {
 id            String   @id @default(cuid())
 usuarioId     String   @unique
 cpf           String   @unique
-rg            String
+rg            String   @unique
 endereco      String
 curso         String
 saldoMoedas   Int      @default(0)
@@ -90,6 +96,7 @@ favoritos        Favorito[]
 carrinhoItens    CarrinhoItem[]
 
 @@index([instituicaoId])
+@@index([createdAt])
 }
 
 model Professor {
@@ -108,6 +115,7 @@ instituicao     Instituicao      @relation(fields: [instituicaoId], references: 
 reconhecimentosFeitos Reconhecimento[]
 
 @@index([instituicaoId])
+  @@index([instituicaoId, departamento])
 }
 
 model Empresa {
@@ -120,6 +128,8 @@ updatedAt  DateTime @updatedAt
 
 usuario    Usuario    @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 vantagens  Vantagem[]
+
+@@index([createdAt])
 }
 
 model Categoria {
@@ -128,6 +138,8 @@ nome      String     @unique
 slug      String     @unique
 icone     String?
 vantagens Vantagem[]
+
+  @@index([slug])
 }
 
 model Vantagem {
@@ -152,7 +164,9 @@ favoritos  Favorito[]
 carrinhoItens CarrinhoItem[]
 
 @@index([empresaId])
+@@index([empresaId, ativo, createdAt])
 @@index([categoriaId, ativo])
+@@index([ativo, categoriaId, createdAt])
 }
 
 model Favorito {
@@ -165,6 +179,7 @@ aluno     Aluno    @relation(fields: [alunoId], references: [id], onDelete: Casc
 vantagem  Vantagem @relation(fields: [vantagemId], references: [id], onDelete: Cascade)
 
 @@unique([alunoId, vantagemId])
+@@index([alunoId, createdAt])
 }
 
 model CarrinhoItem {
@@ -178,6 +193,7 @@ aluno     Aluno    @relation(fields: [alunoId], references: [id], onDelete: Casc
 vantagem  Vantagem @relation(fields: [vantagemId], references: [id], onDelete: Cascade)
 
 @@unique([alunoId, vantagemId])
+@@index([alunoId, createdAt])
 }
 
 model Reconhecimento {
@@ -193,7 +209,11 @@ professor Professor @relation(fields: [professorId], references: [id], onDelete:
 aluno     Aluno     @relation(fields: [alunoId], references: [id], onDelete: Cascade)
 
 @@index([alunoId, createdAt])
+@@index([alunoId, createdAt(sort: Desc)], map: "Reconhecimento_alunoId_createdAt_desc_idx")
 @@index([professorId, createdAt])
+  @@index([professorId, createdAt(sort: Desc)], map: "Reconhecimento_professorId_createdAt_desc_idx")
+  @@index([professorId, tag, createdAt])
+  @@index([professorId, alunoId, createdAt])
 }
 
 model Transacao {
@@ -208,7 +228,9 @@ createdAt        DateTime      @default(now())
 usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 
 @@index([usuarioId, createdAt])
+@@index([usuarioId, tipo, createdAt(sort: Desc)])
 @@index([tipo, createdAt])
+@@index([createdAt, tipo])
 }
 
 model Cupom {
@@ -228,7 +250,14 @@ usuario  Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cas
 vantagem Vantagem @relation(fields: [vantagemId], references: [id], onDelete: Cascade)
 
 @@index([status, dataValidade])
+@@index([status, createdAt])
 @@index([usuarioId, status])
+@@index([usuarioId, status, dataValidade])
+  @@index([usuarioId, createdAt])
+  @@index([vantagemId, createdAt])
+  @@index([vantagemId, status])
+@@index([vantagemId, status, createdAt])
+@@index([validadoPorEmpresaId, dataUtilizacao])
 }
 
 model Notificacao {
@@ -236,11 +265,16 @@ id         String   @id @default(cuid())
 usuarioId  String
 titulo     String
 mensagem   String
+tipo       String?
 lida       Boolean  @default(false)
 link       String?
+deletedAt  DateTime?
 createdAt  DateTime @default(now())
 
 usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 
 @@index([usuarioId, lida, createdAt])
+@@index([usuarioId, createdAt])
+@@index([usuarioId, tipo, createdAt])
+@@index([usuarioId, deletedAt, createdAt])
 }

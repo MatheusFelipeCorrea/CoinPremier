@@ -1,0 +1,195 @@
+.admin-professores {
+  display: grid;
+  gap: 18px;
+}
+
+.admin-professores > header,
+.admin-professores__filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.admin-professores h1 {
+  margin: 0 0 8px;
+}
+
+.admin-professores p {
+  margin: 0;
+  color: #777b90;
+}
+
+.admin-professores > header button,
+.admin-professores__form button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-professores__filters {
+  justify-content: flex-start;
+  padding: 12px;
+  border: 1px solid #ececf4;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.admin-professores__filters label,
+.admin-professores__filters select {
+  min-height: 44px;
+  border: 1px solid #e7e8ef;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.admin-professores__filters label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 350px);
+  padding: 0 14px;
+  color: #8b8fa3;
+}
+
+.admin-professores__filters input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+.admin-professores__filters select {
+  min-width: 220px;
+  padding: 0 12px;
+}
+
+.admin-professores__table {
+  overflow-x: auto;
+  border: 1px solid #ececf4;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.admin-professores__row {
+  display: grid;
+  grid-template-columns: 1.6fr 1.7fr 1fr 1fr 1.4fr 0.8fr 0.8fr 90px;
+  align-items: center;
+  gap: 14px;
+  min-width: 1040px;
+  min-height: 58px;
+  padding: 0 16px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.admin-professores__row--head {
+  color: #7a7f93;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.admin-professores__row strong {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-professores__row strong span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #8b5cf6;
+  font-size: 0.78rem;
+}
+
+.admin-professores__coins {
+  color: #ca8a04;
+  font-weight: 900;
+}
+
+.admin-professores__row em {
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.admin-professores__row em.is-active {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.admin-professores__row em.is-blocked {
+  color: #be123c;
+  background: #ffe4e6;
+}
+
+.admin-professores__row div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-professores__row button {
+  border: 0;
+  color: #6d28d9;
+  background: transparent;
+  cursor: pointer;
+}
+
+.admin-professores__row .toggle-on,
+.admin-professores__row .toggle-off {
+  width: 36px;
+  height: 20px;
+  border-radius: 999px;
+}
+
+.admin-professores__row .toggle-on {
+  background: #22c55e;
+}
+
+.admin-professores__row .toggle-off {
+  background: #f43f5e;
+}
+
+.admin-professores__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.admin-professores__form label {
+  display: grid;
+  gap: 7px;
+  color: #52566a;
+  font-weight: 800;
+}
+
+.admin-professores__form input,
+.admin-professores__form select {
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #e1e4ec;
+  border-radius: 8px;
+}
+
+.admin-professores__form button {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+  .admin-professores > header,
+  .admin-professores__filters,
+  .admin-professores__form {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}

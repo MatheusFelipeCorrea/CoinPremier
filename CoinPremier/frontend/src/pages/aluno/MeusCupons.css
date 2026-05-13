@@ -1,0 +1,140 @@
+.aluno-cupons {
+  display: grid;
+  gap: 20px;
+}
+
+.aluno-cupons h1 {
+  margin: 0;
+  color: #17172f;
+  font-size: 2rem;
+}
+
+.aluno-cupons__tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid #ececf4;
+}
+
+.aluno-cupons__tabs button {
+  padding: 0 0 12px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: #6b7280;
+  background: transparent;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.aluno-cupons__tabs button.active {
+  color: #5b21b6;
+  border-color: #5b21b6;
+}
+
+.aluno-cupons__list {
+  display: grid;
+  gap: 12px;
+}
+
+.aluno-cupons__item {
+  display: grid;
+  grid-template-columns: 230px 90px 1fr 100px 120px;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border: 1px solid #ececf4;
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.aluno-cupons__item > strong {
+  color: #5b21b6;
+  font-size: 1.65rem;
+  letter-spacing: 0.08em;
+}
+
+.aluno-cupons__item span {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: #16a34a;
+  background: #dcfce7;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.aluno-cupons__item h2 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.aluno-cupons__item p {
+  margin: 0;
+  color: #7a7f93;
+}
+
+.aluno-cupons__item em {
+  color: #6d28d9;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.aluno-cupons__item button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  border: 1px solid #d8dce7;
+  border-radius: 8px;
+  background: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.aluno-cupons__modal {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+}
+
+.aluno-cupons__code {
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border-radius: 12px;
+  background: #f5f3ff;
+}
+
+.aluno-cupons__code strong {
+  color: #5b21b6;
+  font-size: 1.7rem;
+  letter-spacing: 0.08em;
+}
+
+.aluno-cupons__modal dl {
+  display: grid;
+  gap: 10px;
+}
+
+.aluno-cupons__modal dl div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aluno-cupons__modal dt {
+  color: #7a7f93;
+}
+
+.aluno-cupons__modal dd {
+  margin: 0;
+  font-weight: 900;
+}
+
+@media (max-width: 980px) {
+  .aluno-cupons__item,
+  .aluno-cupons__modal {
+    grid-template-columns: 1fr;
+  }
+}

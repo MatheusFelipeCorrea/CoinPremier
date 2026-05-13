@@ -1,0 +1,118 @@
+.admin-instituicoes {
+  display: grid;
+  gap: 18px;
+}
+
+.admin-instituicoes > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.admin-instituicoes h1 {
+  margin: 0 0 8px;
+}
+
+.admin-instituicoes p {
+  margin: 0;
+  color: #777b90;
+}
+
+.admin-instituicoes > header button,
+.admin-instituicoes__form button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-instituicoes__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 360px);
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid #e7e8ef;
+  border-radius: 8px;
+  background: #fff;
+  color: #8b8fa3;
+}
+
+.admin-instituicoes__search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+.admin-instituicoes__table {
+  overflow: hidden;
+  border: 1px solid #ececf4;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.admin-instituicoes__row {
+  display: grid;
+  grid-template-columns: 2fr 0.8fr 0.8fr 0.9fr 1fr 100px;
+  align-items: center;
+  gap: 16px;
+  min-height: 58px;
+  padding: 0 18px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.admin-instituicoes__row--head {
+  color: #7a7f93;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.admin-instituicoes__row div {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-instituicoes__row button {
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: #6d28d9;
+  background: transparent;
+  cursor: pointer;
+}
+
+.admin-instituicoes__row button:last-child {
+  color: #e11d48;
+}
+
+.admin-instituicoes__form {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-instituicoes__form label {
+  display: grid;
+  gap: 7px;
+  color: #52566a;
+  font-weight: 800;
+}
+
+.admin-instituicoes__form input {
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #e1e4ec;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .admin-instituicoes__row {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+}

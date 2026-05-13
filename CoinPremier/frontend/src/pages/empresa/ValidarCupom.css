@@ -1,0 +1,162 @@
+.empresa-validar {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+}
+
+.empresa-validar__search-card,
+.empresa-validar__pending,
+.empresa-validar__result,
+.empresa-validar__invalid,
+.empresa-validar__success {
+  width: min(100%, 520px);
+  padding: 28px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  text-align: center;
+  background: #fff;
+}
+
+.empresa-validar__search-card h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.empresa-validar__search-card p {
+  margin: 0 0 20px;
+  color: #7a7f93;
+}
+
+.empresa-validar__search-card input {
+  width: 100%;
+  min-height: 62px;
+  padding: 0 18px;
+  border: 1px solid #e5e7ef;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 0.28em;
+}
+
+.empresa-validar__search-card button,
+.empresa-validar__confirm,
+.empresa-validar__success button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 16px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.empresa-validar__pending {
+  display: grid;
+  gap: 10px;
+  width: min(100%, 700px);
+  text-align: left;
+}
+
+.empresa-validar__pending h2 {
+  margin: 0 0 10px;
+}
+
+.empresa-validar__pending button {
+  display: grid;
+  grid-template-columns: 130px 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid #f0f0f5;
+  border-radius: 10px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.empresa-validar__pending strong,
+.empresa-validar__pending em {
+  color: #5b21b6;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.empresa-validar__badge {
+  display: inline-flex;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.empresa-validar__badge.ok {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.empresa-validar__info {
+  display: grid;
+  gap: 18px;
+  margin: 22px 0;
+  text-align: left;
+}
+
+.empresa-validar__info > div {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.empresa-validar__info small,
+.empresa-validar__info span,
+.empresa-validar__info dt {
+  color: #7a7f93;
+}
+
+.empresa-validar__info strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.2rem;
+}
+
+.empresa-validar__info dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.empresa-validar__info dd {
+  margin: 6px 0 0;
+  font-weight: 900;
+}
+
+.empresa-validar__cancel,
+.empresa-validar__invalid button {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #d8dce7;
+  border-radius: 10px;
+  color: #5b21b6;
+  background: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.empresa-validar__invalid svg {
+  color: #ef4444;
+}
+
+.empresa-validar__success svg {
+  color: #22c55e;
+}
+
+@media (max-width: 680px) {
+  .empresa-validar__pending button,
+  .empresa-validar__info dl {
+    grid-template-columns: 1fr;
+  }
+}

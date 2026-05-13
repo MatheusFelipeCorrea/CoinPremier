@@ -1,0 +1,222 @@
+.not-found-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 36px 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 4% 16%, rgba(124, 58, 237, 0.16) 0 16%, transparent 17%),
+    radial-gradient(circle at 92% 88%, rgba(79, 70, 229, 0.14) 0 18%, transparent 19%),
+    linear-gradient(135deg, #f0efff 0%, #ece8ff 54%, #f8f7ff 100%);
+}
+
+.not-found-content {
+  width: min(100%, 760px);
+  text-align: center;
+  color: #10172f;
+}
+
+.not-found-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+}
+
+.not-found-brand__coin {
+  display: grid;
+  width: 66px;
+  height: 66px;
+  place-items: center;
+  color: #d97706;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffe680, #f59e0b);
+  box-shadow: inset 0 0 0 5px rgba(245, 158, 11, 0.2), 0 14px 24px rgba(217, 119, 6, 0.22);
+}
+
+.not-found-hero {
+  position: relative;
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+}
+
+.not-found-code {
+  position: absolute;
+  z-index: 0;
+  color: rgba(99, 102, 241, 0.12);
+  font-size: clamp(10rem, 32vw, 19rem);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+}
+
+.not-found-coin {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(56vw, 320px);
+  height: min(56vw, 320px);
+  place-items: center;
+  color: #4c1d95;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #ffe99b 0 12%, #facc15 45%, #f59e0b 100%);
+  box-shadow: inset 0 0 0 16px rgba(180, 83, 9, 0.14), 0 28px 60px rgba(109, 40, 217, 0.18);
+}
+
+.not-found-coin::before,
+.not-found-coin::after {
+  content: "";
+  position: absolute;
+  bottom: 12%;
+  width: 42px;
+  height: 18px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: inset 0 -5px 0 #6d5bd0;
+}
+
+.not-found-coin::before {
+  left: 15%;
+  transform: rotate(-15deg);
+}
+
+.not-found-coin::after {
+  right: 15%;
+  transform: rotate(15deg);
+}
+
+.not-found-eyes {
+  transform: translateY(-18px);
+  color: #111827;
+  font-size: 3rem;
+  letter-spacing: 28px;
+}
+
+.not-found-mouth {
+  position: absolute;
+  top: 58%;
+  width: 62px;
+  height: 28px;
+  border-top: 7px solid #7c2d12;
+  border-radius: 50%;
+}
+
+.not-found-question {
+  position: absolute;
+  z-index: 2;
+  top: 22%;
+  right: 18%;
+  display: grid;
+  width: 86px;
+  height: 86px;
+  place-items: center;
+  color: #6d28d9;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 3.5rem;
+  font-weight: 900;
+  box-shadow: 0 18px 36px rgba(79, 70, 229, 0.18);
+}
+
+.not-found-content h1 {
+  margin: 20px 0 14px;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.not-found-content p {
+  width: min(100%, 420px);
+  margin: 0 auto 34px;
+  color: #7c8597;
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.not-found-actions {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.not-found-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: min(100%, 420px);
+  min-height: 68px;
+  padding: 0 28px;
+  border-radius: 13px;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  box-shadow: 0 16px 28px rgba(79, 70, 229, 0.26);
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.not-found-secondary {
+  border: 0;
+  color: #6d28d9;
+  background: transparent;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.not-found-help {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  margin-top: 38px;
+  color: #8b93a4;
+}
+
+.not-found-help > span {
+  height: 1px;
+  background: #d8d5f0;
+}
+
+.not-found-help small {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+.not-found-help a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #6d28d9;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .not-found-hero {
+    min-height: 260px;
+  }
+
+  .not-found-question {
+    width: 66px;
+    height: 66px;
+    font-size: 2.6rem;
+    right: 8%;
+  }
+
+  .not-found-primary {
+    min-width: 100%;
+  }
+
+  .not-found-help {
+    grid-template-columns: 1fr;
+  }
+
+  .not-found-help > span {
+    display: none;
+  }
+}

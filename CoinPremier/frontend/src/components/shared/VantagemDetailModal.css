@@ -1,0 +1,117 @@
+.vantagem-detail-modal {
+  display: grid;
+  gap: 20px;
+}
+
+.vantagem-detail-modal__hero {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.vantagem-detail-modal__hero > div {
+  display: grid;
+  min-height: 210px;
+  place-items: center;
+  border-radius: 14px;
+  color: #5b21b6;
+  background: #f1ecff;
+  font-weight: 900;
+  text-align: center;
+}
+
+.vantagem-detail-modal h3,
+.vantagem-detail-modal h4 {
+  margin: 0;
+  color: #0f1230;
+}
+
+.vantagem-detail-modal__hero article {
+  display: grid;
+  gap: 12px;
+}
+
+.vantagem-detail-modal__hero span {
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #5b21b6;
+  background: #f1ecff;
+  font-weight: 900;
+}
+
+.vantagem-detail-modal__hero p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.vantagem-detail-modal__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #e5e7ef;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.vantagem-detail-modal__stats article {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 18px;
+  border-right: 1px solid #ececf4;
+  text-align: center;
+}
+
+.vantagem-detail-modal__stats svg {
+  color: #6d28d9;
+}
+
+.vantagem-detail-modal__stats span {
+  color: #6b7280;
+}
+
+.vantagem-detail-modal__stats strong {
+  font-size: 1.35rem;
+}
+
+.vantagem-detail-modal__table {
+  display: grid;
+  margin-top: 12px;
+  border: 1px solid #e5e7ef;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.vantagem-detail-modal__table > div {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.4fr 1.4fr 0.8fr;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #ececf4;
+}
+
+.vantagem-detail-modal__table > div:first-child {
+  color: #6b7280;
+  font-weight: 900;
+  background: #fafafa;
+}
+
+.vantagem-detail-modal__table em {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: #15803d;
+  background: #dcfce7;
+  font-style: normal;
+  font-weight: 900;
+}
+
+@media (max-width: 800px) {
+  .vantagem-detail-modal__hero,
+  .vantagem-detail-modal__stats,
+  .vantagem-detail-modal__table > div {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,142 @@
+.empresa-perfil {
+  display: grid;
+  gap: 24px;
+}
+
+.empresa-perfil__hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #111827, #6d28d9);
+}
+
+.empresa-perfil__avatar {
+  display: grid;
+  width: 86px;
+  height: 86px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.empresa-perfil__hero h1,
+.empresa-perfil__hero p {
+  margin: 0;
+}
+
+.empresa-perfil__hero p {
+  opacity: 0.82;
+}
+
+.empresa-perfil__form {
+  display: grid;
+  gap: 18px;
+}
+
+.empresa-perfil__form section {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.empresa-perfil__form h2 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0;
+  font-size: 1.18rem;
+}
+
+.empresa-perfil__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.empresa-perfil__form label {
+  display: grid;
+  gap: 8px;
+  color: #4b5563;
+  font-weight: 800;
+}
+
+.empresa-perfil__form input,
+.empresa-perfil__form textarea {
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid #e5e7ef;
+  border-radius: 9px;
+  background: #fff;
+  font: inherit;
+}
+
+.empresa-perfil__form textarea {
+  padding-top: 12px;
+}
+
+.empresa-perfil__form input:disabled {
+  background: #f8f8fb;
+}
+
+.empresa-perfil__form small {
+  color: #dc2626;
+}
+
+.empresa-perfil__stats > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.empresa-perfil__stats article {
+  padding: 18px;
+  border-radius: 12px;
+  background: #f8f7ff;
+}
+
+.empresa-perfil__stats span {
+  display: block;
+  color: #7a7f93;
+  font-weight: 800;
+}
+
+.empresa-perfil__stats strong {
+  font-size: 2rem;
+}
+
+.empresa-perfil__stats a,
+.empresa-perfil__form > button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.empresa-perfil__form > button {
+  justify-self: end;
+}
+
+@media (max-width: 760px) {
+  .empresa-perfil__hero,
+  .empresa-perfil__grid,
+  .empresa-perfil__stats > div {
+    grid-template-columns: 1fr;
+  }
+}

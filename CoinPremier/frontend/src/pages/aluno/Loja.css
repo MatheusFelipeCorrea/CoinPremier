@@ -1,0 +1,129 @@
+.aluno-loja {
+  display: grid;
+  gap: 22px;
+}
+
+.aluno-loja__header h1 {
+  margin: 0;
+  color: #17172f;
+  font-size: 2rem;
+}
+
+.aluno-loja__header p {
+  margin: 6px 0 0;
+  color: #7a7f93;
+}
+
+.aluno-loja__layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 22px;
+}
+
+.aluno-loja__filters {
+  align-self: start;
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.aluno-loja__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #e5e7ef;
+  border-radius: 9px;
+  color: #8b8fa3;
+}
+
+.aluno-loja__search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+}
+
+.aluno-loja__filters h2 {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+}
+
+.aluno-loja__filters button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  border: 0;
+  color: #4b5563;
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.aluno-loja__filters button.active {
+  color: #5b21b6;
+}
+
+.aluno-loja__filters small {
+  color: #9ca3af;
+}
+
+.aluno-loja__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #ececf4;
+  font-weight: 800;
+}
+
+.aluno-loja__toggle input {
+  width: 42px;
+  height: 22px;
+  accent-color: #7c3aed;
+}
+
+.aluno-loja__results {
+  display: grid;
+  gap: 18px;
+}
+
+.aluno-loja__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.aluno-loja__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.aluno-loja__pagination button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid #e5e7ef;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.aluno-loja__pagination button.active {
+  color: #fff;
+  border: 0;
+  background: #6d28d9;
+}
+
+@media (max-width: 900px) {
+  .aluno-loja__layout {
+    grid-template-columns: 1fr;
+  }
+}

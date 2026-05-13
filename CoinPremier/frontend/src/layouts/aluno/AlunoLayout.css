@@ -1,0 +1,249 @@
+.aluno-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  background: #f7f7fb;
+  color: #17172f;
+}
+
+.aluno-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 24px 20px;
+  border-right: 1px solid #ececf4;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.aluno-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #172554;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.aluno-sidebar__brand button {
+  display: none;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+}
+
+.aluno-sidebar__coin {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: #d97706;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffe680, #f59e0b);
+  box-shadow: inset 0 0 0 3px rgba(245, 158, 11, 0.18);
+}
+
+.aluno-sidebar__balance {
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  padding: 22px;
+  border-radius: 14px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  box-shadow: 0 14px 28px rgba(79, 70, 229, 0.22);
+}
+
+.aluno-sidebar__balance span {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.aluno-sidebar__balance strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 2.4rem;
+}
+
+.aluno-sidebar__balance small {
+  font-size: 1rem;
+}
+
+.aluno-sidebar__nav {
+  display: grid;
+  gap: 6px;
+}
+
+.aluno-sidebar__nav a,
+.aluno-sidebar__logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  color: #42445a;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.aluno-sidebar__nav a.active {
+  color: #5b21b6;
+  background: #f1ecff;
+}
+
+.aluno-sidebar__logout {
+  margin-top: auto;
+  color: #e11d48;
+}
+
+.aluno-shell__main {
+  min-width: 0;
+}
+
+.aluno-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 72px;
+  padding: 0 28px;
+  border-bottom: 1px solid #ececf4;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+}
+
+.aluno-topbar__menu {
+  border: 0;
+  background: transparent;
+  color: #5b5e72;
+  cursor: pointer;
+}
+
+.aluno-topbar__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 560px);
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #e5e7ef;
+  border-radius: 9px;
+  color: #8b8fa3;
+  background: #f8f8fb;
+}
+
+.aluno-topbar__search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #1f2937;
+  background: transparent;
+}
+
+.aluno-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: auto;
+}
+
+.aluno-topbar__bell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #4b5563;
+}
+
+.aluno-topbar__bell span {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #ef4444;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.aluno-topbar__profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aluno-topbar__avatar {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #60a5fa, #7c3aed);
+  font-weight: 900;
+}
+
+.aluno-topbar__profile strong,
+.aluno-topbar__profile small {
+  display: block;
+}
+
+.aluno-topbar__profile small {
+  color: #8b8fa3;
+}
+
+.aluno-content {
+  padding: 28px;
+}
+
+@media (max-width: 900px) {
+  .aluno-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .aluno-sidebar {
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    transform: translateX(-100%);
+    width: 280px;
+    transition: transform 180ms ease;
+  }
+
+  .aluno-shell--open .aluno-sidebar {
+    transform: translateX(0);
+  }
+
+  .aluno-sidebar__brand button {
+    display: inline-grid;
+  }
+
+  .aluno-topbar {
+    padding: 0 16px;
+  }
+
+  .aluno-topbar__search {
+    display: none;
+  }
+
+  .aluno-content {
+    padding: 18px;
+  }
+}

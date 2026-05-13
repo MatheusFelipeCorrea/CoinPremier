@@ -1,0 +1,102 @@
+.transaction-detail-modal {
+  display: grid;
+  gap: 20px;
+}
+
+.transaction-detail-modal > header {
+  display: grid;
+  grid-template-columns: 72px 1fr 260px;
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #e5e7ef;
+  border-radius: 14px;
+  background: #faf7ff;
+}
+
+.transaction-detail-modal > header > span {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #6d28d9;
+  font-weight: 900;
+}
+
+.transaction-detail-modal h3,
+.transaction-detail-modal h4,
+.transaction-detail-modal p {
+  margin: 0;
+}
+
+.transaction-detail-modal p {
+  color: #6b7280;
+}
+
+.transaction-detail-modal aside {
+  display: grid;
+  gap: 5px;
+  padding-left: 18px;
+  border-left: 1px solid #ddd6fe;
+}
+
+.transaction-detail-modal pre {
+  position: relative;
+  overflow: auto;
+  min-height: 220px;
+  margin: 10px 0 0;
+  padding: 22px;
+  border-radius: 10px;
+  color: #e5e7eb;
+  background: #111827;
+  line-height: 1.55;
+}
+
+.transaction-detail-modal pre button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.transaction-detail-modal dl {
+  display: grid;
+  margin: 10px 0 0;
+  border: 1px solid #e5e7ef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.transaction-detail-modal dl div {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  border-bottom: 1px solid #ececf4;
+}
+
+.transaction-detail-modal dt,
+.transaction-detail-modal dd {
+  margin: 0;
+  padding: 12px 14px;
+}
+
+.transaction-detail-modal dt {
+  background: #fafafa;
+  font-weight: 900;
+}
+
+@media (max-width: 760px) {
+  .transaction-detail-modal > header,
+  .transaction-detail-modal dl div {
+    grid-template-columns: 1fr;
+  }
+}

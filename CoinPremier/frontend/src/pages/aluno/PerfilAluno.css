@@ -1,0 +1,122 @@
+.aluno-perfil {
+  display: grid;
+  gap: 24px;
+}
+
+.aluno-perfil__hero {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+.aluno-perfil__avatar {
+  display: grid;
+  width: 88px;
+  height: 88px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  font-size: 2.6rem;
+  font-weight: 900;
+}
+
+.aluno-perfil__hero h1,
+.aluno-perfil__hero p {
+  margin: 0;
+}
+
+.aluno-perfil__hero p {
+  opacity: 0.8;
+}
+
+.aluno-perfil__hero strong {
+  font-size: 1.4rem;
+}
+
+.aluno-perfil__form {
+  display: grid;
+  gap: 18px;
+}
+
+.aluno-perfil__form section {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.aluno-perfil__form h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #17172f;
+  font-size: 1.18rem;
+}
+
+.aluno-perfil__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.aluno-perfil__form label {
+  display: grid;
+  gap: 8px;
+  color: #4b5563;
+  font-weight: 800;
+}
+
+.aluno-perfil__form input,
+.aluno-perfil__form textarea {
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid #e5e7ef;
+  border-radius: 9px;
+  color: #17172f;
+  background: #fff;
+  font: inherit;
+}
+
+.aluno-perfil__form textarea {
+  padding-top: 12px;
+  resize: vertical;
+}
+
+.aluno-perfil__form input:disabled {
+  color: #8b8fa3;
+  background: #f8f8fb;
+}
+
+.aluno-perfil__form small {
+  color: #dc2626;
+}
+
+.aluno-perfil__form > button {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  font-weight: 900;
+}
+
+@media (max-width: 760px) {
+  .aluno-perfil__hero,
+  .aluno-perfil__grid {
+    grid-template-columns: 1fr;
+  }
+}

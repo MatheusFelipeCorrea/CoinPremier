@@ -1,0 +1,163 @@
+.aluno-dashboard {
+  display: grid;
+  gap: 22px;
+}
+
+.aluno-dashboard__header h1 {
+  margin: 0;
+  color: #17172f;
+  font-size: 2rem;
+}
+
+.aluno-dashboard__header p {
+  margin: 6px 0 0;
+  color: #7a7f93;
+}
+
+.aluno-dashboard__stats {
+  display: grid;
+  grid-template-columns: 1.2fr repeat(3, 1fr);
+  gap: 22px;
+}
+
+.aluno-dashboard__stat {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.aluno-dashboard__stat--featured {
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+.aluno-dashboard__stat span {
+  color: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.aluno-dashboard__stat strong {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  font-size: 2rem;
+}
+
+.aluno-dashboard__stat small {
+  color: inherit;
+  opacity: 0.78;
+}
+
+.aluno-dashboard__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 22px;
+}
+
+.aluno-dashboard__panel,
+.aluno-dashboard__recommendations {
+  padding: 20px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.aluno-dashboard__panel header,
+.aluno-dashboard__recommendations header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.aluno-dashboard__panel h2,
+.aluno-dashboard__recommendations h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.aluno-dashboard__panel a,
+.aluno-dashboard__recommendations a {
+  color: #6d28d9;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.aluno-dashboard__chart {
+  display: flex;
+  align-items: end;
+  gap: 14px;
+  height: 260px;
+  padding: 20px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff, #f5f3ff);
+}
+
+.aluno-dashboard__chart div {
+  position: relative;
+  flex: 1;
+  min-height: 24px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #7c3aed, rgba(124, 58, 237, 0.14));
+}
+
+.aluno-dashboard__chart span {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #6d28d9;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.aluno-dashboard__recognitions {
+  display: grid;
+  gap: 12px;
+}
+
+.aluno-dashboard__recognitions div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.aluno-dashboard__recognitions p {
+  margin: 0;
+  color: #7a7f93;
+}
+
+.aluno-dashboard__recognitions span {
+  grid-row: span 2;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+.aluno-dashboard__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 1100px) {
+  .aluno-dashboard__stats,
+  .aluno-dashboard__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .aluno-dashboard__stats,
+  .aluno-dashboard__grid {
+    grid-template-columns: 1fr;
+  }
+}

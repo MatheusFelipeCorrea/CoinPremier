@@ -1,0 +1,78 @@
+.admin-perfil {
+  display: grid;
+  gap: 22px;
+  max-width: 760px;
+}
+
+.admin-perfil > header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.admin-perfil > header > span {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border-radius: 50%;
+  color: #6d28d9;
+  background: #f1ecff;
+}
+
+.admin-perfil h1 {
+  margin: 0 0 8px;
+}
+
+.admin-perfil p {
+  margin: 0;
+  color: #777b90;
+}
+
+.admin-perfil__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(17, 24, 39, 0.04);
+}
+
+.admin-perfil__form label {
+  display: grid;
+  gap: 8px;
+  color: #52566a;
+  font-weight: 800;
+}
+
+.admin-perfil__form input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #e1e4ec;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.admin-perfil__form input:disabled {
+  color: #7a7f93;
+  background: #f8f8fb;
+}
+
+.admin-perfil__form button {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .admin-perfil__form {
+    grid-template-columns: 1fr;
+  }
+}

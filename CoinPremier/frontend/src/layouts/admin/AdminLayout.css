@@ -1,0 +1,236 @@
+.admin-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  background: #f8f8fc;
+  color: #17172f;
+}
+
+.admin-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 24px 20px;
+  border-right: 1px solid #ececf4;
+  background: rgba(255, 255, 255, 0.97);
+}
+
+.admin-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #172554;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.admin-sidebar__brand button {
+  display: none;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+}
+
+.admin-sidebar__coin {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: #d97706;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffe680, #f59e0b);
+}
+
+.admin-sidebar__nav {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-sidebar__nav a,
+.admin-sidebar__logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  color: #42445a;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-sidebar__nav a.active {
+  color: #5b21b6;
+  background: #f1ecff;
+}
+
+.admin-sidebar__account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #ececf4;
+}
+
+.admin-sidebar__account > span,
+.admin-topbar__avatar {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #6d28d9;
+  font-weight: 900;
+}
+
+.admin-sidebar__account strong,
+.admin-sidebar__account small {
+  display: block;
+}
+
+.admin-sidebar__account small {
+  color: #8b8fa3;
+}
+
+.admin-sidebar__logout {
+  color: #e11d48;
+}
+
+.admin-shell__main {
+  min-width: 0;
+}
+
+.admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 72px;
+  padding: 0 28px;
+  border-bottom: 1px solid #ececf4;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+}
+
+.admin-topbar__menu {
+  border: 0;
+  background: transparent;
+  color: #5b5e72;
+  cursor: pointer;
+}
+
+.admin-topbar__search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 720px);
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #e5e7ef;
+  border-radius: 9px;
+  color: #8b8fa3;
+  background: #f8f8fb;
+}
+
+.admin-topbar__search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.admin-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: auto;
+}
+
+.admin-topbar__bell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: #4b5563;
+  background: transparent;
+}
+
+.admin-topbar__bell span {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #ef4444;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.admin-topbar__profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-topbar__profile strong,
+.admin-topbar__profile small {
+  display: block;
+}
+
+.admin-topbar__profile small {
+  color: #8b8fa3;
+}
+
+.admin-content {
+  padding: 28px;
+}
+
+@media (max-width: 900px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform 180ms ease;
+  }
+
+  .admin-shell--open .admin-sidebar {
+    transform: translateX(0);
+  }
+
+  .admin-sidebar__brand button {
+    display: inline-grid;
+  }
+
+  .admin-topbar {
+    padding: 0 16px;
+  }
+
+  .admin-topbar__search {
+    display: none;
+  }
+
+  .admin-content {
+    padding: 18px;
+  }
+}

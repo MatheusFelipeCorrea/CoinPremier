@@ -1,0 +1,80 @@
+.aluno-state,
+.aluno-empty {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  min-height: 220px;
+  padding: 28px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  color: #6b7280;
+  text-align: center;
+  background: #fff;
+}
+
+.aluno-state__spin {
+  animation: aluno-state-spin 900ms linear infinite;
+}
+
+.aluno-state--error {
+  color: #be123c;
+  background: #fff7f8;
+}
+
+.aluno-state button,
+.aluno-empty a,
+.aluno-empty button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.aluno-empty {
+  grid-template-columns: 180px 1fr;
+  justify-items: center;
+  text-align: left;
+}
+
+.aluno-empty__illustration {
+  display: grid;
+  width: 150px;
+  height: 110px;
+  place-items: center;
+  color: #7c3aed;
+  border-radius: 999px;
+  background: #f1ecff;
+  font-size: 4rem;
+}
+
+.aluno-empty h3 {
+  margin: 0 0 8px;
+  color: #17172f;
+  font-size: 1.35rem;
+}
+
+.aluno-empty p {
+  margin: 0 0 18px;
+  color: #7a7f93;
+}
+
+@keyframes aluno-state-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .aluno-empty {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}

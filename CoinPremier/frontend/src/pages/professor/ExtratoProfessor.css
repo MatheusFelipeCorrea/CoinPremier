@@ -1,0 +1,136 @@
+.prof-extrato {
+  display: grid;
+  gap: 22px;
+}
+
+.prof-extrato h1,
+.prof-extrato h2 {
+  margin: 0;
+}
+
+.prof-extrato p {
+  margin: 6px 0 0;
+  color: #74788e;
+}
+
+.prof-extrato__hero {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 40px 20px;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #8b22f6);
+  box-shadow: 0 18px 36px rgba(109, 40, 217, 0.24);
+}
+
+.prof-extrato__hero span {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.prof-extrato__hero strong {
+  font-size: 4rem;
+}
+
+.prof-extrato__hero p {
+  color: #fff;
+}
+
+.prof-extrato__banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid #ddd6fe;
+  border-radius: 14px;
+  background: #f3efff;
+}
+
+.prof-extrato__banner svg {
+  color: #6d28d9;
+}
+
+.prof-extrato__banner small {
+  margin-left: auto;
+  color: #6b7280;
+  font-weight: 800;
+}
+
+.prof-extrato__timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.prof-extrato__timeline article {
+  display: grid;
+  grid-template-columns: 62px 1fr 1.5fr 100px auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid #ececf4;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(17, 24, 39, 0.04);
+}
+
+.prof-extrato__timeline article > span {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #8b5cf6;
+  font-weight: 900;
+}
+
+.prof-extrato__timeline em {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #5b21b6;
+  background: #f1ecff;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.prof-extrato__timeline strong {
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.prof-extrato__timeline strong.is-negative {
+  color: #e11d48;
+}
+
+.prof-extrato__timeline strong.is-positive {
+  color: #16a34a;
+}
+
+.prof-extrato__timeline time {
+  color: #6b7280;
+}
+
+.prof-extrato__more {
+  justify-self: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 0;
+  color: #5b21b6;
+  background: transparent;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .prof-extrato__timeline article,
+  .prof-extrato__banner {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .prof-extrato__banner small {
+    margin-left: 0;
+  }
+}

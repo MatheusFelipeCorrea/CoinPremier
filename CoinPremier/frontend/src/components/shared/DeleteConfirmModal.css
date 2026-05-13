@@ -1,0 +1,40 @@
+.delete-confirm {
+  display: grid;
+  gap: 20px;
+  text-align: center;
+}
+
+.delete-confirm p {
+  margin: 0;
+  color: #4b4f63;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.delete-confirm p strong {
+  color: #be123c;
+}
+
+.delete-confirm label {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #fecdd3;
+  border-radius: 14px;
+  color: #4b4f63;
+  background: #fff1f2;
+  font-weight: 800;
+}
+
+.delete-confirm label strong {
+  color: #dc2626;
+}
+
+.delete-confirm input {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #fff;
+  font-size: 1rem;
+}

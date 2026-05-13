@@ -1,0 +1,127 @@
+.aluno-extrato {
+  display: grid;
+  gap: 22px;
+}
+
+.aluno-extrato__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aluno-extrato__header h1 {
+  margin: 0;
+  color: #17172f;
+  font-size: 2rem;
+}
+
+.aluno-extrato__header button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid #7c3aed;
+  border-radius: 9px;
+  color: #5b21b6;
+  background: #fff;
+  font-weight: 900;
+}
+
+.aluno-extrato__hero {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  padding: 38px;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+.aluno-extrato__hero span {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.aluno-extrato__hero strong {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+}
+
+.aluno-extrato__filters {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 18px;
+}
+
+.aluno-extrato__filters label {
+  display: grid;
+  gap: 8px;
+  color: #4b5563;
+  font-weight: 800;
+}
+
+.aluno-extrato__filters select,
+.aluno-extrato__filters input {
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid #e5e7ef;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.aluno-extrato__timeline {
+  overflow: hidden;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.aluno-extrato__item {
+  display: grid;
+  grid-template-columns: 58px 1fr 120px 170px;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.aluno-extrato__item > span {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.aluno-extrato__item .in {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.aluno-extrato__item .out {
+  color: #e11d48;
+  background: #ffe4e6;
+}
+
+.aluno-extrato__item h2 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.aluno-extrato__item p,
+.aluno-extrato__item time {
+  margin: 0;
+  color: #7a7f93;
+}
+
+.aluno-extrato__item strong {
+  justify-self: end;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .aluno-extrato__filters,
+  .aluno-extrato__item {
+    grid-template-columns: 1fr;
+  }
+}

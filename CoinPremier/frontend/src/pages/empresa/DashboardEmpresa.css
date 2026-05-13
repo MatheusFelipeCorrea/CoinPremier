@@ -1,0 +1,200 @@
+.empresa-dashboard {
+  display: grid;
+  gap: 24px;
+}
+
+.empresa-dashboard__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.empresa-dashboard__header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.empresa-dashboard__header p {
+  margin: 0;
+  color: #7a7f93;
+}
+
+.empresa-dashboard__header a,
+.empresa-dashboard__pending a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.empresa-dashboard__kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.empresa-dashboard__kpis article,
+.empresa-dashboard__charts article,
+.empresa-dashboard__pending {
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(17, 24, 39, 0.04);
+}
+
+.empresa-dashboard__kpis article {
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+}
+
+.empresa-dashboard__kpis article > span {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  border-radius: 50%;
+  color: #6d28d9;
+  background: #f1ecff;
+}
+
+.empresa-dashboard__kpis small {
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.empresa-dashboard__kpis strong {
+  font-size: 2.3rem;
+}
+
+.empresa-dashboard__kpis em {
+  color: #7a7f93;
+  font-style: normal;
+}
+
+.empresa-dashboard__charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.empresa-dashboard__charts article,
+.empresa-dashboard__pending {
+  padding: 20px;
+}
+
+.empresa-dashboard__charts header,
+.empresa-dashboard__pending header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.empresa-dashboard__charts h2,
+.empresa-dashboard__pending h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.empresa-dashboard__line {
+  display: flex;
+  align-items: end;
+  gap: 14px;
+  height: 240px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #fafaff;
+}
+
+.empresa-dashboard__line div {
+  position: relative;
+  flex: 1;
+  min-height: 20px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #7c3aed, rgba(124, 58, 237, 0.14));
+}
+
+.empresa-dashboard__line span {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.empresa-dashboard__bars {
+  display: grid;
+  gap: 18px;
+}
+
+.empresa-dashboard__bars div {
+  display: grid;
+  grid-template-columns: 160px 1fr 40px;
+  align-items: center;
+  gap: 14px;
+}
+
+.empresa-dashboard__bars strong {
+  display: block;
+  max-width: 100%;
+  height: 22px;
+  border-radius: 3px;
+  background: #6d28d9;
+}
+
+.empresa-dashboard__bars em {
+  font-style: normal;
+  font-weight: 900;
+}
+
+.empresa-dashboard__pending > div {
+  display: grid;
+}
+
+.empresa-dashboard__pending > div > div {
+  display: grid;
+  grid-template-columns: 130px 1fr 1fr 170px 100px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.empresa-dashboard__pending strong {
+  color: #5b21b6;
+}
+
+.empresa-dashboard__pending a {
+  min-height: 36px;
+  padding: 0 14px;
+}
+
+@media (max-width: 1100px) {
+  .empresa-dashboard__kpis,
+  .empresa-dashboard__charts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .empresa-dashboard__pending > div > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .empresa-dashboard__header,
+  .empresa-dashboard__kpis,
+  .empresa-dashboard__charts {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}

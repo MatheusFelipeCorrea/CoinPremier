@@ -1,0 +1,58 @@
+.aluno-modal {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.aluno-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.42);
+}
+
+.aluno-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 720px);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+}
+
+.aluno-modal__panel header,
+.aluno-modal__panel footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #ececf4;
+}
+
+.aluno-modal__panel footer {
+  border-top: 1px solid #ececf4;
+  border-bottom: 0;
+}
+
+.aluno-modal__panel h2 {
+  margin: 0;
+  color: #17172f;
+}
+
+.aluno-modal__panel header button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #f4f4f8;
+  cursor: pointer;
+}
+
+.aluno-modal__body {
+  padding: 24px;
+}

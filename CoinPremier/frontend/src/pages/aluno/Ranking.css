@@ -1,0 +1,169 @@
+.aluno-ranking {
+  display: grid;
+  gap: 28px;
+}
+
+.aluno-ranking__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.aluno-ranking__header h1 {
+  margin: 0 0 8px;
+  color: #17172f;
+  font-size: 2.3rem;
+}
+
+.aluno-ranking__header p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #7a7f93;
+}
+
+.aluno-ranking__tabs {
+  display: flex;
+  height: 44px;
+  padding: 3px;
+  border: 1px solid #ececf4;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.aluno-ranking__tabs button {
+  border: 0;
+  border-radius: 8px;
+  padding: 0 18px;
+  background: transparent;
+  font-weight: 800;
+}
+
+.aluno-ranking__tabs .active {
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+}
+
+.aluno-ranking__podium {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  gap: 26px;
+  min-height: 390px;
+}
+
+.aluno-ranking__place {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 24px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.08);
+}
+
+.aluno-ranking__place--1 {
+  min-height: 330px;
+  background: linear-gradient(180deg, #fff7cc, #facc15);
+}
+
+.aluno-ranking__place--2 {
+  min-height: 270px;
+  background: linear-gradient(180deg, #f8fafc, #cbd5e1);
+}
+
+.aluno-ranking__place--3 {
+  min-height: 240px;
+  background: linear-gradient(180deg, #ffedd5, #fb923c);
+}
+
+.aluno-ranking__crown {
+  color: #f59e0b;
+}
+
+.aluno-ranking__avatar {
+  display: grid;
+  width: 86px;
+  height: 86px;
+  place-items: center;
+  border: 5px solid rgba(255,255,255,.8);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #60a5fa, #7c3aed);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.aluno-ranking__place > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #facc15;
+  font-weight: 900;
+}
+
+.aluno-ranking__place h2,
+.aluno-ranking__place p {
+  margin: 0;
+}
+
+.aluno-ranking__place p {
+  color: #5f6478;
+}
+
+.aluno-ranking__place strong {
+  margin-top: 12px;
+  color: #17172f;
+  font-size: 1.8rem;
+}
+
+.aluno-ranking__table {
+  overflow: hidden;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.aluno-ranking__row {
+  display: grid;
+  grid-template-columns: 100px 1.2fr 1.2fr 1fr 120px;
+  gap: 16px;
+  padding: 18px 22px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.aluno-ranking__row--head {
+  color: #7a7f93;
+  font-weight: 900;
+}
+
+.aluno-ranking__mine {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+.aluno-ranking__mine strong {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .aluno-ranking__header,
+  .aluno-ranking__mine {
+    display: grid;
+  }
+
+  .aluno-ranking__podium,
+  .aluno-ranking__row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,171 @@
+.empresa-form-vantagem {
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+}
+
+.empresa-form-vantagem__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #5b21b6;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.empresa-form-vantagem h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.empresa-form-vantagem p {
+  margin: 0;
+  color: #7a7f93;
+}
+
+.empresa-form-vantagem form {
+  display: grid;
+  gap: 18px;
+}
+
+.empresa-form-vantagem section {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid #ececf4;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.empresa-form-vantagem h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.empresa-form-vantagem h2 span {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #6d28d9;
+  font-size: 0.9rem;
+}
+
+.empresa-form-vantagem__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.empresa-form-vantagem label {
+  display: grid;
+  gap: 8px;
+  color: #4b5563;
+  font-weight: 800;
+}
+
+.empresa-form-vantagem input,
+.empresa-form-vantagem select,
+.empresa-form-vantagem textarea {
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid #e5e7ef;
+  border-radius: 9px;
+  background: #fff;
+  font: inherit;
+}
+
+.empresa-form-vantagem textarea {
+  padding-top: 12px;
+  resize: vertical;
+}
+
+.empresa-form-vantagem__upload {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.empresa-form-vantagem__upload > div:first-child,
+.empresa-form-vantagem__preview {
+  display: grid;
+  place-items: center;
+  min-height: 190px;
+  padding: 22px;
+  border: 1px dashed #a78bfa;
+  border-radius: 14px;
+  color: #6d28d9;
+  text-align: center;
+  background: #fbfaff;
+}
+
+.empresa-form-vantagem__upload input {
+  width: 100%;
+}
+
+.empresa-form-vantagem__preview {
+  overflow: hidden;
+  border-style: solid;
+  background: #f8fafc;
+}
+
+.empresa-form-vantagem__preview img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.empresa-form-vantagem__check {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.empresa-form-vantagem__check input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: #6d28d9;
+}
+
+.empresa-form-vantagem footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.empresa-form-vantagem footer a,
+.empresa-form-vantagem footer button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 170px;
+  min-height: 48px;
+  border-radius: 10px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.empresa-form-vantagem footer a {
+  color: #5b21b6;
+  border: 1px solid #a78bfa;
+  background: #fff;
+}
+
+.empresa-form-vantagem footer button {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+}
+
+@media (max-width: 760px) {
+  .empresa-form-vantagem__grid,
+  .empresa-form-vantagem__upload {
+    grid-template-columns: 1fr;
+  }
+}

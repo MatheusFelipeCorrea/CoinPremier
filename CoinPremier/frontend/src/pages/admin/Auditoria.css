@@ -1,0 +1,196 @@
+.admin-auditoria {
+  display: grid;
+  gap: 18px;
+}
+
+.admin-auditoria > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.admin-auditoria h1 {
+  margin: 0 0 8px;
+}
+
+.admin-auditoria p {
+  margin: 0;
+  color: #777b90;
+}
+
+.admin-auditoria > header button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid #6d28d9;
+  border-radius: 8px;
+  color: #5b21b6;
+  background: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-auditoria__filters {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-auditoria__filters label {
+  display: grid;
+  gap: 8px;
+  min-width: 260px;
+  color: #6b7280;
+  font-weight: 800;
+}
+
+.admin-auditoria__filters label:has(input) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid #e7e8ef;
+  border-radius: 8px;
+  background: #fff;
+  color: #8b8fa3;
+}
+
+.admin-auditoria__filters select,
+.admin-auditoria__filters input {
+  min-height: 44px;
+  border: 1px solid #e7e8ef;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.admin-auditoria__filters label:has(input) input {
+  width: 100%;
+  min-height: auto;
+  border: 0;
+  outline: 0;
+}
+
+.admin-auditoria__filters select {
+  padding: 0 12px;
+}
+
+.admin-auditoria__filters > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  color: #8b8fa3;
+  font-weight: 800;
+}
+
+.admin-auditoria__filters strong {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+  border-radius: 999px;
+  background: #22c55e;
+}
+
+.admin-auditoria__filters strong::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.admin-auditoria__timeline {
+  display: grid;
+  border: 1px solid #ececf4;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.admin-auditoria__timeline article {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 18px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+.admin-auditoria__icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #6d28d9;
+}
+
+.admin-auditoria__icon--vantagem {
+  background: #16a34a;
+}
+
+.admin-auditoria__icon--cupom {
+  background: #f59e0b;
+}
+
+.admin-auditoria__icon--instituicao {
+  background: #0ea5e9;
+}
+
+.admin-auditoria__icon--moedas {
+  background: #c026d3;
+}
+
+.admin-auditoria__timeline article header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.admin-auditoria__timeline h2 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.admin-auditoria__timeline small {
+  display: inline-block;
+  margin-top: 8px;
+  color: #52566a;
+  font-weight: 800;
+}
+
+.admin-auditoria__timeline time {
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.admin-auditoria__timeline button {
+  justify-self: end;
+  margin-top: 10px;
+  border: 0;
+  color: #5b21b6;
+  background: transparent;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-auditoria__timeline pre {
+  overflow-x: auto;
+  margin: 14px 0 0;
+  padding: 18px;
+  border-radius: 10px;
+  background: #faf7ff;
+  color: #4c1d95;
+}
+
+@media (max-width: 700px) {
+  .admin-auditoria__timeline article,
+  .admin-auditoria__timeline article header {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}

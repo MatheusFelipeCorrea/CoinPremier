@@ -9,7 +9,7 @@ export default function authMiddleware(req, _res, next) {
 	}
 
 	const token = authHeader.replace('Bearer ', '');
-	const payload = jwt.verify(token, process.env.JWT_SECRET);
+	const payload = jwt.verify(token, process.env.JWT_SECRET || 'coinpremier-dev-secret');
 	req.user = { id: payload.sub, role: payload.role };
 	return next();
   } catch (_error) {
