@@ -1,8 +1,12 @@
 import axios from 'axios';
 import useAuthStore from '@/store/authStore.js';
 
+const isProduction = import.meta.env.PROD;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3333/api',
+  baseURL:
+    import.meta.env.VITE_API_URL ||
+    (isProduction ? '/_/backend/api' : 'http://localhost:3333/api'),
 });
 
 api.interceptors.request.use((config) => {
