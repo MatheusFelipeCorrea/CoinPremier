@@ -1,42 +1,43 @@
 {
-"name": "coinpremier-backend",
-"version": "1.0.0",
-"description": "API do sistema de moeda virtual acadêmica CoinPremier",
-"main": "src/server.js",
-"type": "module",
-"scripts": {
-  "dev": "nodemon src/server.js",
-  "start": "node src/server.js",
-  "postinstall": "prisma generate",
-  "prisma:generate": "prisma generate",
-  "prisma:migrate": "prisma migrate dev",
-  "prisma:deploy": "prisma migrate deploy",
-  "prisma:studio": "prisma studio",
-  "prisma:seed": "node prisma/seed.js",
-  "prisma:reset": "prisma migrate reset"
-},
-"prisma": {
-  "seed": "node prisma/seed.js"
-},
-"keywords": ["coinpremier", "api", "express", "prisma"],
-"author": "",
-"license": "MIT",
-"dependencies": {
-  "@prisma/client": "^5.22.0",
-  "bcryptjs": "^2.4.3",
-  "cors": "^2.8.5",
-  "dotenv": "^16.4.5",
-  "express": "^4.21.1",
-  "helmet": "^8.0.0",
-  "jsonwebtoken": "^9.0.2",
-  "morgan": "^1.10.0",
-  "multer": "^1.4.5-lts.1",
-  "node-cron": "^3.0.3",
-  "nodemailer": "^6.9.16",
-  "zod": "^3.23.8"
-},
-"devDependencies": {
-  "nodemon": "^3.1.7",
-  "prisma": "^5.22.0"
-}
+  "name": "coinpremier-backend",
+  "version": "1.0.0",
+  "description": "API do sistema de moeda virtual academica CoinPremier",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "prisma generate",
+    "postinstall": "prisma generate",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "node prisma/seed.js",
+    "prisma:reset": "prisma migrate reset"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "keywords": ["coinpremier", "api", "express", "prisma"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.16",
+    "prisma": "^5.22.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
 }

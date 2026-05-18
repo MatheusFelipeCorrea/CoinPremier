@@ -24,6 +24,10 @@ app.get('/', (_req, res) => {
 	res.json({ message: 'CoinPremier API funcionando!' });
 });
 
+app.get('/api', (_req, res) => {
+	res.json({ message: 'CoinPremier API funcionando!', ok: true });
+});
+
 app.use('/api', routes);
 app.use(errorHandler);
 
