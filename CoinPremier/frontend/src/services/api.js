@@ -1,23 +1,18 @@
 import axios from 'axios';
 import useAuthStore from '@/store/authStore.js';
 
-const isProduction = import.meta.env.PROD;
 const productionApiBase = '/_/backend/api';
 
 function resolveBaseURL() {
   const configuredBaseURL = import.meta.env.VITE_API_URL?.trim();
+  const hostname = window.location.hostname;
+  const isLocalHost = hostname === 'localhost' || hostname === '127.0.0.1';
 
-  // Em produção no Vercel, usa sempre a mesma origem do frontend.
-  // Isso evita erros por VITE_API_URL mal configurada.
-  if (isProduction) {
-    return productionApiBase;
-  }
-
-  if (!isProduction) {
+  if (isLocalHost) {
     return configuredBaseURL || 'http://localhost:3333/api';
   }
 
-  return configuredBaseURL;
+  return productionApiBase;
 }
 
 const api = axios.create({
