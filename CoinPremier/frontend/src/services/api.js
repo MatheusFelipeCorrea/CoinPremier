@@ -7,22 +7,14 @@ const productionApiBase = '/_/backend/api';
 function resolveBaseURL() {
   const configuredBaseURL = import.meta.env.VITE_API_URL?.trim();
 
+  // Em produção no Vercel, usa sempre a mesma origem do frontend.
+  // Isso evita erros por VITE_API_URL mal configurada.
+  if (isProduction) {
+    return productionApiBase;
+  }
+
   if (!isProduction) {
     return configuredBaseURL || 'http://localhost:3333/api';
-  }
-
-  if (!configuredBaseURL) {
-    return productionApiBase;
-  }
-
-  try {
-    const resolvedURL = new URL(configuredBaseURL, window.location.origin);
-
-    if (resolvedURL.hostname === 'localhost' || resolvedURL.hostname === '127.0.0.1') {
-      return productionApiBase;
-    }
-  } catch {
-    return productionApiBase;
   }
 
   return configuredBaseURL;

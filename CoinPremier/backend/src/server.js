@@ -14,8 +14,38 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3333;
 
+function isAllowedOrigin(origin) {
+	if (!origin) return true;
+
+	const frontendUrl = process.env.FRONTEND_URL;
+	if (frontendUrl && origin === frontendUrl) return true;
+
+	try {
+		const frontendHost = frontendUrl ? new URL(frontendUrl).hostname : null;
+		const originHost = new URL(origin).hostname;
+
+		if (frontendHost && originHost === frontendHost) return true;
+		if (originHost.endsWith('.vercel.app')) return true;
+	} catch {
+		return false;
+	}
+
+	return false;
+}
+
 app.use(helmet());
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173', credentials: true }));
+app.use(
+	cors({
+		origin(origin, callback) {
+			if (isAllowedOrigin(origin)) {
+				return callback(null, true);
+			}
+
+			return callback(new Error(`CORS bloqueado para origem: ${origin}`));
+		},
+		credentials: true,
+	})
+);
 app.use(express.json());
 app.use(morgan('dev'));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
