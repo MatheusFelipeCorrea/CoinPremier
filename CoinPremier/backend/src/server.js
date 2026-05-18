@@ -21,12 +21,18 @@ app.use(morgan('dev'));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.get('/', (_req, res) => {
-res.json({ message: 'CoinPremier API funcionando!' });
+	res.json({ message: 'CoinPremier API funcionando!' });
 });
 
 app.use('/api', routes);
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-});
+// Só roda app.listen em ambiente local/desenvolvimento
+if (process.env.NODE_ENV !== 'production' && process.env.VERCEL !== '1') {
+	app.listen(PORT, () => {
+		console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+	});
+}
+
+// Exporta o app para uso serverless (Vercel)
+export default app;
