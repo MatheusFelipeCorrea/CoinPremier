@@ -251,7 +251,7 @@ const AdminService = {
         professor: {
           create: {
             cpf,
-            departamento: payload.departamento,
+            departamento: payload.departamento?.trim() || 'Não informado',
             saldoMoedas: payload.saldoMoedas,
             instituicaoId: payload.instituicaoId,
             ultimoSemestreCredito: '2026-1',

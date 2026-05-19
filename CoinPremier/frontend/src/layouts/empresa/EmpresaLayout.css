@@ -16,6 +16,15 @@
   padding: 24px 20px;
   border-right: 1px solid #ececf4;
   background: rgba(255, 255, 255, 0.96);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.empresa-sidebar__brand,
+.empresa-sidebar__logout {
+  flex-shrink: 0;
 }
 
 .empresa-sidebar__brand {

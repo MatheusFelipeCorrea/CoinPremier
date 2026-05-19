@@ -18,9 +18,13 @@ export default function MinhasVantagens() {
   const { data, loading, error, refetch } = useAlunoResource(() => empresaService.getMinhasVantagens(filters), [filters]);
 
   async function toggleStatus(item) {
-    await empresaService.patchStatusVantagem(item.id, !item.ativo);
-    toast.success('Status atualizado');
-    refetch();
+    try {
+      await empresaService.patchStatusVantagem(item.id, !item.ativo);
+      toast.success('Status atualizado');
+      refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível atualizar o status');
+    }
   }
 
   async function remove(item) {
@@ -30,13 +34,19 @@ export default function MinhasVantagens() {
       toast.success('Vantagem desativada');
       setDeleteTarget(null);
       refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível desativar a vantagem');
     } finally {
       setDeleting(false);
     }
   }
 
   async function openDetail(item) {
-    setDetail(await empresaService.getVantagemEmpresa(item.id));
+    try {
+      setDetail(await empresaService.getVantagemEmpresa(item.id));
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível carregar os detalhes');
+    }
   }
 
   if (loading) return <AlunoLoading label="Carregando vantagens..." />;

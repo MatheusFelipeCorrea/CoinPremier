@@ -58,7 +58,7 @@ export const professorCreateSchema = z.object({
   nome: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(120).transform((value) => value.toLowerCase()),
   cpf: z.string().trim().min(11).max(20),
-  departamento: z.string().trim().min(2).max(120),
+  departamento: z.string().trim().max(120).optional().default(''),
   instituicaoId: z.string().min(1),
   saldoMoedas: z.coerce.number().int().min(0).optional().default(1000),
   senha: z.string().min(8).optional().default('Teste@123'),

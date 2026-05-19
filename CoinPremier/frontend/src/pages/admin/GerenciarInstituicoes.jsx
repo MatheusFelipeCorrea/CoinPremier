@@ -30,16 +30,25 @@ export default function GerenciarInstituicoes() {
       setModalOpen(false);
       setEditing(null);
       refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível salvar a instituição');
     } finally {
       setSaving(false);
     }
   }
 
   async function remove(item) {
-    await adminService.deleteInstituicao(item.id);
-    toast.success('Instituição removida');
-    setDeleteTarget(null);
-    refetch();
+    setSaving(true);
+    try {
+      await adminService.deleteInstituicao(item.id);
+      toast.success('Instituição removida');
+      setDeleteTarget(null);
+      refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível remover a instituição');
+    } finally {
+      setSaving(false);
+    }
   }
 
   if (loading) return <AlunoLoading label="Carregando instituições..." />;
