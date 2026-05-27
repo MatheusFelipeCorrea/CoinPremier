@@ -16,6 +16,16 @@
   padding: 24px 20px;
   border-right: 1px solid #ececf4;
   background: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.aluno-sidebar__brand,
+.aluno-sidebar__balance,
+.aluno-sidebar__logout {
+  flex-shrink: 0;
 }
 
 .aluno-sidebar__brand {

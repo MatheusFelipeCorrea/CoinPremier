@@ -1,8 +1,22 @@
 import axios from 'axios';
 import useAuthStore from '@/store/authStore.js';
 
+const productionApiBase = '/_/backend/api';
+
+function resolveBaseURL() {
+  const configuredBaseURL = import.meta.env.VITE_API_URL?.trim();
+  const hostname = window.location.hostname;
+  const isLocalHost = hostname === 'localhost' || hostname === '127.0.0.1';
+
+  if (isLocalHost) {
+    return configuredBaseURL || 'http://localhost:3333/api';
+  }
+
+  return productionApiBase;
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3333/api',
+  baseURL: resolveBaseURL(),
 });
 
 api.interceptors.request.use((config) => {

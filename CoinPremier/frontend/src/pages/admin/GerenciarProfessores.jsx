@@ -33,6 +33,8 @@ export default function GerenciarProfessores() {
       toast.success('Professor salvo');
       setModalOpen(false);
       refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível salvar o professor');
     } finally {
       setSaving(false);
     }
@@ -40,9 +42,13 @@ export default function GerenciarProfessores() {
 
   async function toggleStatus(item) {
     const status = item.usuario.status === 'ATIVO' ? 'BLOQUEADO' : 'ATIVO';
-    await adminService.patchProfessor(item.id, { status });
-    toast.success(status === 'ATIVO' ? 'Professor ativado' : 'Professor bloqueado');
-    refetch();
+    try {
+      await adminService.patchProfessor(item.id, { status });
+      toast.success(status === 'ATIVO' ? 'Professor ativado' : 'Professor bloqueado');
+      refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível alterar o status');
+    }
   }
 
   async function removeProfessor(item) {
@@ -52,6 +58,8 @@ export default function GerenciarProfessores() {
       toast.success('Professor bloqueado');
       setDeleteTarget(null);
       refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível bloquear o professor');
     } finally {
       setSaving(false);
     }

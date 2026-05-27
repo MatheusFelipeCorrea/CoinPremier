@@ -30,16 +30,25 @@ export default function GerenciarCategorias() {
       toast.success('Categoria salva');
       setModalOpen(false);
       refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível salvar a categoria');
     } finally {
       setSaving(false);
     }
   }
 
   async function remove(item) {
-    await adminService.deleteCategoria(item.id);
-    toast.success('Categoria removida');
-    setDeleteTarget(null);
-    refetch();
+    setSaving(true);
+    try {
+      await adminService.deleteCategoria(item.id);
+      toast.success('Categoria removida');
+      setDeleteTarget(null);
+      refetch();
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível remover a categoria');
+    } finally {
+      setSaving(false);
+    }
   }
 
   if (loading) return <AlunoLoading label="Carregando categorias..." />;

@@ -107,31 +107,64 @@
   font-weight: 900;
 }
 
+.admin-dashboard__chart-caption {
+  margin: -10px 0 0;
+  color: #7a7f93;
+  font-size: 0.88rem;
+}
+
+.admin-dashboard__chart-empty {
+  margin: 0;
+  padding: 28px 0;
+  color: #7a7f93;
+  text-align: center;
+  font-weight: 700;
+}
+
 .admin-dashboard__activity-bars {
   display: flex;
-  align-items: end;
-  gap: 18px;
-  min-height: 240px;
+  align-items: flex-end;
+  gap: 12px;
+  height: 168px;
+  margin-top: 4px;
+  padding: 0 2px 2px;
 }
 
 .admin-dashboard__activity-bars div {
-  display: grid;
-  justify-items: center;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   flex: 1;
+  min-width: 0;
+  height: 100%;
+  gap: 6px;
+}
+
+.admin-dashboard__activity-value {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #42445a;
+  line-height: 1;
 }
 
 .admin-dashboard__activity-bars span {
   display: block;
-  width: 38px;
-  min-height: 28px;
+  width: 100%;
+  max-width: 36px;
+  min-height: 8px;
   border-radius: 6px 6px 0 0;
-  background: #6d28d9;
+  background: linear-gradient(180deg, #7c3aed, #6d28d9);
+  transition: height 180ms ease;
 }
 
 .admin-dashboard__activity-bars small {
   color: #7a7f93;
+  font-size: 0.72rem;
   font-weight: 800;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 100%;
 }
 
 .admin-dashboard__recent header {

@@ -16,6 +16,15 @@
   padding: 24px 20px;
   border-right: 1px solid #ececf4;
   background: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.professor-sidebar__brand,
+.professor-sidebar__logout {
+  flex-shrink: 0;
 }
 
 .professor-sidebar__brand {

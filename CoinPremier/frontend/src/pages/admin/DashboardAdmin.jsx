@@ -8,21 +8,37 @@ import { useAlunoResource } from '@/hooks/useAlunoResource.js';
 import adminService from '@/services/adminService.js';
 import './DashboardAdmin.css';
 
+const ACTIVITY_BAR_MAX_PX = 120;
+const ACTIVITY_TIPO_LABELS = {
+  ENVIO: 'Envio',
+  RECEBIMENTO: 'Recebimento',
+  RESGATE: 'Resgate',
+  CREDITO_SEMESTRAL: 'Crédito sem.',
+};
+
 export default function DashboardAdmin() {
   const [emailModalOpen, setEmailModalOpen] = useState(false);
   const [templates, setTemplates] = useState([]);
   const { data, loading, error, refetch } = useAlunoResource(() => adminService.getDashboardAdmin(), []);
 
   async function openEmailPreview() {
-    const result = await adminService.getEmailTemplates();
-    const withHtml = await Promise.all(result.items.map((item) => adminService.getEmailTemplate(item.tipo)));
-    setTemplates(withHtml);
-    setEmailModalOpen(true);
+    try {
+      const result = await adminService.getEmailTemplates();
+      const withHtml = await Promise.all(result.items.map((item) => adminService.getEmailTemplate(item.tipo)));
+      setTemplates(withHtml);
+      setEmailModalOpen(true);
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível carregar os templates de email');
+    }
   }
 
   async function sendEmailTest(payload) {
-    const result = await adminService.sendEmailTeste(payload);
-    toast.success(result.delivered ? 'Email de teste enviado' : 'Preview gerado sem SMTP configurado');
+    try {
+      const result = await adminService.sendEmailTeste(payload);
+      toast.success(result.delivered ? 'Email de teste enviado' : 'Preview gerado sem SMTP configurado');
+    } catch (err) {
+      toast.error(err.response?.data?.error?.message || 'Não foi possível enviar o email de teste');
+    }
   }
 
   if (loading) return <AlunoLoading label="Carregando painel administrativo..." />;
@@ -34,6 +50,7 @@ export default function DashboardAdmin() {
     { label: 'Moedas em circulação', value: data.moedasCirculacao, icon: Banknote },
     { label: 'Cupons emitidos', value: data.cupons.emitidos, icon: Ticket },
   ];
+  const activityMax = Math.max(...data.atividadeSemana.map((item) => item._count._all), 1);
 
   return (
     <section className="admin-dashboard">
@@ -68,12 +85,16 @@ export default function DashboardAdmin() {
         </article>
 
         <article>
-          <header><h2>Atividade por tipo</h2></header>
+          <header>
+            <h2>Atividade por tipo</h2>
+            <p className="admin-dashboard__chart-caption">Volume de transações na plataforma</p>
+          </header>
           <div className="admin-dashboard__activity-bars">
             {data.atividadeSemana.map((item) => (
               <div key={item.tipo}>
-                <span style={{ height: `${item._count._all * 18 + 24}px` }} />
-                <small>{item.tipo}</small>
+                <strong className="admin-dashboard__activity-value">{item._count._all}</strong>
+                <span style={{ height: `${Math.max(8, (item._count._all / activityMax) * ACTIVITY_BAR_MAX_PX)}px` }} />
+                <small>{ACTIVITY_TIPO_LABELS[item.tipo] || item.tipo}</small>
               </div>
             ))}
           </div>
