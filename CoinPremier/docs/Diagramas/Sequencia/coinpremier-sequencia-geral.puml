@@ -1,0 +1,97 @@
+@startuml
+title CoinPremier - Diagrama de Sequencia Geral
+
+actor Usuario
+boundary Frontend as "Frontend React"
+control AuthServiceFE as "authService (frontend)"
+control AuthStore as "authStore"
+control Router as "React Router"
+participant API as "API Express"
+control Validate as "validateMiddleware"
+control AuthController as "AuthController"
+control AuthServiceBE as "AuthService"
+control AuthMiddleware as "authMiddleware"
+participant Prisma as "Prisma / Banco de Dados"
+participant Repositorio as "Repositories"
+participant ResourceController as "Controller do recurso"
+
+== Login ==
+Usuario -> Frontend: Preenche email e senha
+Frontend -> AuthServiceFE: login(payload)
+AuthServiceFE -> API: POST /api/auth/login
+API -> Validate: validar loginSchema
+Validate --> API: ok
+API -> AuthController: login(req, res, next)
+AuthController -> AuthServiceBE: login(body)
+AuthServiceBE -> Repositorio: buscar usuario por email
+Repositorio -> Prisma: SELECT Usuario
+Prisma --> Repositorio: usuario / vazio
+Repositorio --> AuthServiceBE: usuario
+AuthServiceBE -> AuthServiceBE: verificar status e senha
+AuthServiceBE -> AuthServiceBE: gerar JWT
+AuthServiceBE --> AuthController: { token, usuario }
+AuthController --> API: 200 OK
+API --> AuthServiceFE: resposta
+AuthServiceFE --> Frontend: { token, usuario }
+Frontend -> AuthStore: setAuth()
+AuthStore --> Frontend: estado autenticado
+Frontend -> Router: navigate dashboard por role
+
+alt Cadastro de aluno
+  Usuario -> Frontend: Envia formulario de cadastro de aluno
+  Frontend -> AuthServiceFE: cadastroAluno(payload)
+  AuthServiceFE -> API: POST /api/auth/cadastro/aluno
+  API -> Validate: validar cadastroAlunoSchema
+  Validate --> API: ok
+  API -> AuthController: cadastroAluno(req, res, next)
+  AuthController -> AuthServiceBE: cadastroAluno(body)
+  AuthServiceBE -> Repositorio: checar email, CPF, RG e instituicao
+  Repositorio -> Prisma: consultas de existencia
+  Prisma --> Repositorio: resultados
+  AuthServiceBE -> Prisma: transacao
+  Repositorio -> Prisma: INSERT Usuario
+  Prisma --> Repositorio: usuario criado
+  Repositorio -> Prisma: INSERT Aluno
+  Prisma --> Repositorio: aluno criado
+  Repositorio --> AuthServiceBE: usuario criado
+  AuthServiceBE --> AuthController: { token, usuario }
+  AuthController --> API: 201 Created
+  API --> Frontend: resposta
+end
+
+alt Cadastro de empresa
+  Usuario -> Frontend: Envia formulario de cadastro de empresa
+  Frontend -> AuthServiceFE: cadastroEmpresa(payload)
+  AuthServiceFE -> API: POST /api/auth/cadastro/empresa
+  API -> Validate: validar cadastroEmpresaSchema
+  Validate --> API: ok
+  API -> AuthController: cadastroEmpresa(req, res, next)
+  AuthController -> AuthServiceBE: cadastroEmpresa(body)
+  AuthServiceBE -> Repositorio: checar email e CNPJ
+  Repositorio -> Prisma: consultas de existencia
+  Prisma --> Repositorio: resultados
+  AuthServiceBE -> Prisma: transacao
+  Repositorio -> Prisma: INSERT Usuario
+  Prisma --> Repositorio: usuario criado
+  Repositorio -> Prisma: INSERT Empresa
+  Prisma --> Repositorio: empresa criada
+  Repositorio --> AuthServiceBE: usuario criado
+  AuthServiceBE --> AuthController: { token, usuario }
+  AuthController --> API: 201 Created
+  API --> Frontend: resposta
+end
+
+== Requisicao protegida ==
+Usuario -> Frontend: Acessa area autenticada
+Frontend -> API: GET /api/* com Bearer token
+API -> AuthMiddleware: validar JWT
+AuthMiddleware --> API: req.user
+API -> ResourceController: processar regra de negocio
+ResourceController -> Repositorio: consultar/atualizar dados
+Repositorio -> Prisma: SQL via Prisma Client
+Prisma --> Repositorio: dados
+Repositorio --> ResourceController: resultado
+ResourceController --> API: resposta
+API --> Frontend: dados da tela
+
+@enduml
